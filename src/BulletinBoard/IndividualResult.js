@@ -9,8 +9,7 @@ const IndividualResult = () => {
   return (
     <div className="container">
       <div className="main-mobile">
-        <h1>Din stemme er optalt</h1>
-
+        <h1>You vote has been counted</h1>
         <Box
           bg="var(--secondary_blue)"
           padding="1rem"
@@ -19,12 +18,7 @@ const IndividualResult = () => {
           w={"100%"}
         >
           <Text className="info-text">
-            Hvis den optalte stemme herunder ikke svarer til det, du har
-            angivet, bedes du kontakte valgstyrelsen{" "}
-            <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-              her
-            </Link>
-            .
+            NB! If the candidate below does not match with your cast of vote, then please follow the instructions paper.
           </Text>
         </Box>
 
@@ -43,24 +37,27 @@ const IndividualResult = () => {
           display={"flex"}
           justifyContent={"center"}
         >
-          <p>Pia Olsen Dyhr</p>
+          {/* This we need to change */}
+          <Text>
+          <p> Pia Olsen Dyhr</p>
+          </Text>
         </Box>
         <Box className="intro-text" marginTop={"1rem"} marginBottom={"1rem"}>
           <p>
-            Såfremt du ønsker at se hele resultatlisten, klik{" "}
+            If you want to see all counted votes, click{" "}
             <Link
               className="link-bold"
               onClick={() => navigate("/bulletinboard")}
             >
-              her
+              here
             </Link>
             .
           </p>
           <p>
-            Her kan du ligeledes tjekke, om din stemme er afgivet korrekt ved at
-            bruge denne verifikationskode:
+          By following the link you can also check whether your vote has been cast correctly by using this verification code:
           </p>
         </Box>
+        {/* This we also need to change */}
         <p className="bold">CWTL-DMDpLZDSvR</p>
 
         <GridItem className="btn-container-vertical">
@@ -69,11 +66,11 @@ const IndividualResult = () => {
             width="100%"
             bg={"var(--primary_blue)"}
             color="var(--secondary_blue)"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/survey")}
             fontSize="0.9rem"
             marginTop={"2rem"}
           >
-            Afslut
+            Next
           </Button>
         </GridItem>
       </div>
