@@ -25,17 +25,14 @@ const BulletinBoard = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  const results = Results.sort((a, b) => {
-    if (a.code < b.code) {
+  //sort the results alphabetically
+  const results = Results.votes.sort((a, b) => {
+    if (a.code.toUpperCase() < b.code.toUpperCase()) {
       return -1;
     } else {
       return 1;
@@ -43,20 +40,20 @@ const BulletinBoard = () => {
   });
 
   const makeAccordion = () => {
-    let firstLetter = results[0].code[0];
+    let firstLetter = results[0].code[0].toUpperCase();
     let accordion = [];
     let accordionSection = { letter: firstLetter, results: [results[0]] };
     let length = results.length - 1;
     for (let i = 1; i < length; i++) {
       console.log(results[i]);
       console.log(i);
-      if (results[i].code[0] === firstLetter) {
+      if (results[i].code[0].toUpperCase() === firstLetter) {
         console.log(accordionSection);
         accordionSection.results.push(results[i]);
       }
-      if (results[i].code[0] !== firstLetter) {
+      if (results[i].code[0].toUpperCase() !== firstLetter) {
         accordion.push(accordionSection);
-        firstLetter = results[i].code[0];
+        firstLetter = results[i].code[0].toUpperCase();
         console.log(firstLetter);
         accordionSection = { letter: firstLetter, results: [results[i]] };
       }
@@ -65,19 +62,19 @@ const BulletinBoard = () => {
     return accordion;
   };
 
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
+
   const search = (e) => {
     if (input.length == 0) {
       document.querySelector("#error-text").style.display = "none";
       document.querySelector("#success-text").style.display = "none";
     }
     const table = document.querySelector("#result-table");
+    const children = table.childNodes; // get all children
+    let counter = 0; // iterate over all child nodes
 
-    // get all children
-    const children = table.childNodes;
-
-    // iterate over all child nodes
-
-    let counter = 0;
     children.forEach((el) => {
       if (!el.id.startsWith(input)) {
         el.style.display = "none";
@@ -86,11 +83,12 @@ const BulletinBoard = () => {
         counter++;
       }
     });
+
     let message;
     document.querySelector("#error-text").style.display = "none";
     document.querySelector("#success-text").style.display = "none";
 
-    if (counter == 1 && input.length == 15) {
+    if (counter == 1 && input.length == 17) {
       message = document.querySelector("#success-text");
       message.style.display = "block";
     } else if (counter == 0) {
@@ -103,33 +101,19 @@ const BulletinBoard = () => {
     <div className="container">
       <div className="main-mobile">
         <div className="header">
-          <h1>Valgresultat</h1>
+          <h1>Voting Count: Parliament Election 2023</h1>
           <Box maxW="40rem" className="space-between">
-            <p>
-              Herunder ser du resultater af valget. Brug din verifikationskode
-              til at tjekke, at din stemme er optalt korrekt.
-            </p>
-            <p>
-              Dette kan du gøre ved enten at indsætte din kode i søgefeltet
-              eller ved at kigge i den alfabetiske sorterede liste herunder.
+            <p>This pages shows all the counted votes from the Parliament Election 2023.</p>
+            <p>Please use your verification code to check, if your vote has been counted correctly. This is important, because it helps to ensure that the election has proceeded correctly.<Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link> </p>
+  
+            <p className="bold-text">
+              Verify your vote by either putting your verification code into the search field or by looking for it in the alphabetically sorted list below. 
             </p>
           </Box>
-          <Box
-            className="verfification-code"
-            maxWidth={"40rem"}
-            bg="var(--secondary_blue)"
-            padding="1rem"
-            borderRadius={"5px"}
-            color="var(--primary_blue)"
-            marginTop="2rem"
-          >
+          
+          <Box className="info-box">
             <Text className="info-text">
-              Såfremt din stemme ikke er optalt korrekt, eller at du ikke kan
-              finde din kode, bedes du kontakte valgstyrelsen{" "}
-              <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-                her
-              </Link>
-              .
+              <span className="bold-text">NB!</span> If your vote has not been counted correctly or you cannot find your verification code, please follow the instruction paper. The same applies, if you find your verification repeatedly. 
             </Text>
           </Box>
 
@@ -142,7 +126,7 @@ const BulletinBoard = () => {
               value={input}
               onChange={handleInputChange}
               onKeyUp={search}
-              placeholder={"Søg efter din kode her"}
+              placeholder={"Search for verification code here"}
               type="search"
               borderColor="#565d6d"
             />
@@ -151,51 +135,31 @@ const BulletinBoard = () => {
 
         <Box
           id="error-text"
+          className="info-box"
           display={"none"}
-          maxWidth={"40rem"}
-          bg="var(--secondary_blue)"
-          padding="1rem"
-          borderRadius={"5px"}
           color="maroon"
+          marginTop="0"
         >
-          <h3>Der er ingen stemme med denne kode.</h3>
-          <Text className="info-text">
-            Tjek venligst, at du har indtastet din kode korrekt. Hvis koden er
-            korrekt, men din stemme ikke vises, skal du kontakte valgstyrelsen{" "}
-            <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-              her
-            </Link>
-            .
-          </Text>
+          <h3>No such verification code exists</h3>
+          <Text>Please check if you have typed in your verification code correctly - be aware of correct use of lowercase and uppercase letters. 
+            If your verification code still does not show, please follow the instruction paper. </Text>
         </Box>
+
         <Box
           id="success-text"
+          className="info-box"
           display={"none"}
           textAlign="center"
-          width={"100%"}
-          bg="var(--secondary_blue)"
-          padding="1rem"
-          borderRadius={"5px"}
           color="#599C2D"
+          width="100%"
         >
-          <h3>Din stemme er optalt!</h3>
+          <h3>Your vote has been counted!</h3>
         </Box>
 
         {input.length > 0 ? (
           <Box id="result-table" w={"100%"}>
             {results.map((result) => (
-              <Grid
-                key={result.id}
-                className="result-grid"
-                id={result.code}
-                templateColumns="1fr 1fr"
-                gap="10px"
-                paddingTop="3rem"
-                marginBottom="2rem"
-                paddingBottom="1.5rem"
-                borderBottom="solid 1px #D9D9D9"
-                paddingLeft={"0.5rem"}
-              >
+              <Grid key={result.id} className="result-grid" id={result.code}>
                 <GridItem color={"var(--primary_blue)"} fontWeight="600">
                   {result.code}
                 </GridItem>
@@ -223,15 +187,10 @@ const BulletinBoard = () => {
                 <AccordionPanel pb={4} className={letter.letter}>
                   {letter.results.map((result) => (
                     <Grid
-                      key={result.id}
                       className="result-grid"
                       id={result.code}
-                      templateColumns="1fr 1fr"
-                      gap="10px"
                       paddingTop="4rem"
                       paddingBottom="4rem"
-                      borderBottom="solid 1px #D9D9D9"
-                      paddingLeft={"10px"}
                     >
                       <GridItem color={"var(--primary_blue)"} fontWeight="600">
                         {result.code}
@@ -245,16 +204,28 @@ const BulletinBoard = () => {
           </Accordion>
         )}
 
+        <Box marginTop="3rem">
+       <Text marginLeft={"1rem"} marginRight={"1rem"}>Does the candidate next to your verification code match with your casted vote?</Text>
+       <Box display={"flex"} flexFlow="row" justifyContent={"space-between"} marginLeft={"1rem"} marginRight={"1rem"}>
         <Button
           className="button"
-          bg={"var(--primary_blue)"}
-          color="var(--secondary_blue)"
-          width={"100%"}
+          width={"45%"}
           marginTop="3rem"
           onClick={() => navigate("/login")}
         >
-          Afslut
+          Yes
         </Button>
+
+        <Button
+          className="button"
+          width={"45%"}
+          marginTop="3rem"
+          onClick={() => navigate("/login")}
+        >
+          No
+        </Button>
+        </Box>
+        </Box>
       </div>
     </div>
   );
