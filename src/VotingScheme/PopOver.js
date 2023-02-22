@@ -15,10 +15,7 @@ import "./VotingScheme.css";
 function PopOver(value) {
   const navigate = useNavigate();
 
-  const submitVote = () => {
-    navigate("/confirmation");
-  };
-
+ 
   return (
     <Popover className="popover">
       <PopoverTrigger display="flex" justifyContent="center">
@@ -28,54 +25,32 @@ function PopOver(value) {
           color="var(--secondary_blue)"
           width="100%"
         >
-          Afgiv Stemme
+          Cast vote
         </Button>
       </PopoverTrigger>
       <PopoverContent width={"100%"} backgroundColor={"#EEF5FB"} padding="3rem">
         <PopoverArrow />
         <PopoverCloseButton />
-        {value.value === "" ? (
-          <PopoverBody alignContent="center">
-            <Text marginBottom={"1.5rem"}>
-              Tjek venligst at din stemme er angivet korrekt. Er du sikker på,
-              at du ønsker at stemme:
-            </Text>
-            <Text marginBottom={"1.5rem"} marginTop={"1rem"} color="#1C4E81">
-              blankt
-            </Text>
-            <Box display="flex" justifyContent={"center"}>
-              <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>
-              <Button
-                backgroundColor="#1C4E81"
-                onClick={submitVote}
-                textColor="#EEF5FB"
-              >
-                Ja
-              </Button>{" "}
-            </Box>
-          </PopoverBody>
-        ) : (
           <PopoverBody alignContent="center">
             <Text>
-              Tjek venligst at din stemme er angivet korrekt. Er du sikker på,
-              at du ønsker at stemme på:
+              Please check your vote is selected correctly. Are you sure, you want to vote for: 
             </Text>
             <Text marginBottom={"1.5rem"} marginTop={"1rem"} color="#1C4E81">
+              {/* This we need to change */}
               Pia Olsen Dyhr
             </Text>
             <Box display={"flex"} alignItems="top">
-              <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>
+              <PopoverCloseButton className="no-button">No</PopoverCloseButton>
               <Button
                 className="button"
                 bg={"var(--primary_blue)"}
                 color="var(--secondary_blue)"
                 onClick={() => navigate("/confirmation")}
               >
-                Ja
+                Yes
               </Button>
             </Box>
           </PopoverBody>
-        )}
       </PopoverContent>
     </Popover>
   );

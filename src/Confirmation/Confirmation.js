@@ -1,30 +1,16 @@
 import React from "react";
 import "./Confirmation.css";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
 
 export default function Confirmation() {
-  const navigate = useNavigate();
 
   return (
     <div className="container-confirmation container">
       <div className="content-confirmation">
-        <h1>Tak for din stemme</h1>
-        <p>
-          Du modtager en mail med en verifikationskode når resultatet er klart,
-          hvorefter du kan bruge din verifikationskode til at tjekke om din
-          stemme er optalt korrekt.
-        </p>
-        <Button
-          marginTop={"2rem"}
-          width="8rem"
-          className="button"
-          bg={"var(--primary_blue)"}
-          color="var(--secondary_blue)"
-          onClick={() => navigate("/resultnotification")}
-        >
-          Log ud
-        </Button>
+        <h1>Thank you for voting</h1>
+        <p>You will recieve an email, when all votes has been counted and the results are published on the offical webpage. </p>
+        <br></br>
+        <p>Use this webpage to check, if your vote has been counted correctly by finding your unique verification code.</p>
+        <p>The email will contain your unique verification code</p>
       </div>
     </div>
   );

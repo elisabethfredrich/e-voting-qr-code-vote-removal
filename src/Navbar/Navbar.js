@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <div>
-      {!["/login", "/", "/home", "/invitation", "/resultnotification"].includes(
+      {!["/start", "/", "/survey"].includes(
         pathname
       ) && (
         <Box
