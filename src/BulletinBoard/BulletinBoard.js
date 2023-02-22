@@ -101,18 +101,22 @@ const BulletinBoard = () => {
     <div className="container">
       <div className="main-mobile">
         <div className="header">
+
           <h1>Voting Count: Parliament Election 2023</h1>
           <Box maxW="40rem" className="space-between">
-            <p>This pages shows all the counted votes from the Parliament Election 2023.</p>
-            <p>Please use your verification code to check, if your vote has been counted correctly. This is important, because it helps to ensure that the election has proceeded correctly.<Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link> </p>
-  
-            <p className="bold-text">
-              Verify your vote by either putting your verification code into the search field or by looking for it in the alphabetically sorted list below. 
-            </p>
+          <p>This pages shows all the counted votes from the Parliament Election 2023.</p>
+          <p>Please use your verification code to check, if your vote has been counted correctly. This is important, because it helps to ensure that the election has proceeded correctly.<Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link> </p>
           </Box>
-          
-          <Box className="info-box">
-            <Text className="info-text">
+          <Box
+            className="verfification-code"
+            maxWidth={"40rem"}
+            bg="var(--secondary_blue)"
+            padding="1rem"
+            borderRadius={"5px"}
+            color="var(--primary_blue)"
+            marginTop="2rem"
+          >
+             <Text className="info-text">
               <span className="bold-text">NB!</span> If your vote has not been counted correctly or you cannot find your verification code, please follow the instruction paper. The same applies, if you find your verification repeatedly. 
             </Text>
           </Box>
@@ -141,8 +145,10 @@ const BulletinBoard = () => {
           marginTop="0"
         >
           <h3>No such verification code exists</h3>
-          <Text>Please check if you have typed in your verification code correctly - be aware of correct use of lowercase and uppercase letters. 
-            If your verification code still does not show, please follow the instruction paper. </Text>
+          <Text className="info-text">
+            Please check if you have typed in your verification code correctly - be aware of correct use of lowercase and uppercase letters. 
+            If your verification code still does not show, please follow the instruction paper.
+          </Text>
         </Box>
 
         <Box
@@ -211,7 +217,7 @@ const BulletinBoard = () => {
           className="button"
           width={"45%"}
           marginTop="3rem"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/survey")}
         >
           Yes
         </Button>
@@ -220,7 +226,7 @@ const BulletinBoard = () => {
           className="button"
           width={"45%"}
           marginTop="3rem"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/survey")}
         >
           No
         </Button>

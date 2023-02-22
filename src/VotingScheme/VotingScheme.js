@@ -21,7 +21,8 @@ function VotingScheme() {
           <h1>Ballot</h1>
           <div className="bottom-line">
             <p>
-              To cast your vote, please select a candidate below.
+
+              To cast your vote, please select a candidate below and scroll down to submit it.
             </p>
           </div>
         </div>
