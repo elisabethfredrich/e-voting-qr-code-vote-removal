@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
 
-function PopOver(value) {
+function PopOver({ value }) {
   const navigate = useNavigate();
 
  
@@ -31,6 +31,7 @@ function PopOver(value) {
       <PopoverContent width={"100%"} backgroundColor={"#EEF5FB"} padding="3rem">
         <PopoverArrow />
         <PopoverCloseButton />
+
           <PopoverBody alignContent="center">
             <Text>
               Please check your vote is selected correctly. Are you sure, you want to vote for: 

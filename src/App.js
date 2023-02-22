@@ -35,6 +35,7 @@ function App() {
                 path="/individualresult"
                 element={<IndividualResult />}
               />
+
               
             </Routes>
           </BrowserRouter>
