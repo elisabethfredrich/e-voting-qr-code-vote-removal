@@ -2,56 +2,39 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import BulletinBoard from "./BulletinBoard/BulletinBoard";
 import Confirmation from "./Confirmation/Confirmation";
-import Login from "./Login/Login";
 import Navbar from "./Navbar/Navbar";
-import Info from "./Info";
-import Kontakt from "./Kontakt";
 import VotingScheme from "./VotingScheme/VotingScheme";
-import { useState } from "react";
-import Home from "./Home/Home";
-import IndividualResult from "./BulletinBoard/IndividualResult";
-import Invitation from "./letter/Invitation";
-import ResultNotification from "./letter/ResultNotification";
+import Survey from "./Survey/Survey";
+import Break from "./Break/Break";
+import Welcome from "./Welcome/Welcome";
+import Parse from "parse";
+import LegalInfo from "./LegalInfo/LegalInfo";
+
+const PARSE_APPLICATION_ID = "UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL";
+const PARSE_HOST_URL = "https://parseapi.back4app.com/";
+const PARSE_JAVASCRIPT_KEY = "S1tyiUfA5PBsAiER8l8K7YqpPXVg1wpCbQ1F7gty";
+
+Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
+
+Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
-  const [voted, setVoted] = useState(false);
-
   return (
     <div className="App">
       <div id="app-main">
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route
-                exact
-                path="/qr-verification"
-                element={
-                  <Navigate
-                    to="/individualresult" /* Should be referencing the main screen */
-                  />
-                }
-              />
-              <Route exact path="/invitation" element={<Invitation />} />
-              <Route exact path="/home" element={<Home />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/voting" element={<VotingScheme />} />
-              <Route exact path="/confirmation" element={<Confirmation />} />
-              <Route exact path="/bulletinboard" element={<BulletinBoard />} />
-              <Route
-                exact
-                path="/individualresult"
-                element={<IndividualResult />}
-              />
-              <Route exact path="/info" element={<Info />} />
-              <Route exact path="/kontakt" element={<Kontakt />} />
-              <Route exact path="/invitation" element={<Invitation />} />
-              <Route
-                exact
-                path="/resultnotification"
-                element={<ResultNotification />}
-              />
-            </Routes>
-          </BrowserRouter>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Navigate to="/welcome" />} />
+            <Route path="/voting" element={<VotingScheme />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/bulletinboard" element={<BulletinBoard />} />
+            <Route path="/survey" element={<Survey />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/break" element={<Break />} />
+            <Route path="/legalinfo" element={<LegalInfo />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </div>
   );

@@ -1,13 +1,15 @@
 import "./VotingScheme.css";
-import { RadioGroup, Radio, Stack, GridItem } from "@chakra-ui/react";
-import Parties from "../candidates.json";
+import { RadioGroup, Radio, Box, GridItem, Grid, Text } from "@chakra-ui/react";
+import Candidates from "../candidates.json";
 import PopOver from "./PopOver";
-import { useState, useEffect } from "react";
+import { useState, useEffect,  } from "react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 function VotingScheme() {
-  const [value, setValue] = useState("");
+  const [vote, setVote] = useState("blank");
+
+
 
   const location = useLocation();
   useEffect(() => {
@@ -15,56 +17,36 @@ function VotingScheme() {
   }, [location]);
 
   return (
-    <div className="container">
+    <div className="page-container">
       <div className="main">
         <div className="header">
-          <h1>Stemmeseddel</h1>
+          <h1 className="blue-text">Welcome</h1>
           <div className="bottom-line">
-            <p>
-              For at afgive din stemme, sæt venligst et kryds(X) ud fra enten et
-              parti eller en kandidat.
-            </p>
-            <p>
-              De listede kandidater herunder er respektive i forhold til din
-              bopæl.
-            </p>
+            <Text maxWidth="30rem">
+              In order to vote in the General Election, please select a candidate below and click "Submit vote". 
+            </Text>
           </div>
         </div>
 
-        <RadioGroup onChange={setValue} value={value}>
-          {Parties.map((party) => (
-            <div id="party" key={party.id}>
-              <Radio
-                value={party.id.toString()}
-                marginBottom="1rem"
-                padding="1rem"
-                borderColor="#1C4E81"
-              >
-                <h2>{party.party}</h2>
-              </Radio>
-              <Stack
-                className="stack"
-                display="grid"
-                gridTemplateColumns="1fr 1fr"
-                color="#1C4E81"
-                alignItems={"end"}
-              >
-                {party.candidates.map((candidate) => (
-                  <GridItem key={candidate.id} className="grid-item">
+        <RadioGroup onChange={setVote} value={vote} className="radio-group">
+          <Grid className="voting-options">
+            {Candidates.map((candidate) => (
+              <Box key={candidate.id}>
+                <GridItem className="voting-option">
                     <Radio
-                      value={candidate.id.toString()}
-                      borderColor="#1C4E81"
-                    >
-                      {candidate.candidate}
+                      className="radio candidate-party-wrapper"
+                      value={`${candidate.candidate} (${candidate.party})`}
+                      >
+                    <div>{candidate.candidate}</div>
+                    <div>{candidate.party}</div>
                     </Radio>
-                  </GridItem>
-                ))}
-              </Stack>
-            </div>
-          ))}
+                </GridItem>
+              </Box>
+            ))}
+          </Grid>
         </RadioGroup>
 
-        <PopOver value={value}></PopOver>
+        <PopOver vote={vote}></PopOver>
       </div>
     </div>
   );

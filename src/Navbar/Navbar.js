@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import "../App.css";
 import "./Navbar.css";
-import Logo from "../assets/logo-folketinget.svg";
+import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -11,31 +11,30 @@ function Navbar() {
 
   return (
     <div>
-      {!["/login", "/", "/home", "/invitation", "/resultnotification"].includes(
+      {!["/", "/survey", "/welcome", "/break", "/legalinfo"].includes(
         pathname
       ) && (
         <Box
           w="100vw"
-          h="10vh"
+          h="12vh"
           position={"fixed"}
           top="0"
           bg="#EEF5FB"
           display={"flex"}
-          justifyContent="center"
-          alignItems={"center"}
           paddingLeft="2rem"
           paddingRight="2rem"
+          paddingBottom="0.5rem"
+          paddingTop="0.5rem"
           zIndex={"10"}
         >
           {/* Logo */}
           <Box
-            w={"7rem"}
+           //w={"10rem"}
             h="100%"
-            padding="0.5rem"
+            float="start"
             display="flex"
-            justifyContent="center"
-            onClick={() => navigate("/home")}
-            cursor="pointer"
+            justifyContent="flex-start"
+
           >
             <img src={Logo} />
           </Box>

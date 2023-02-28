@@ -3,13 +3,16 @@ import React from "react";
 import "./BulletinBoard.css";
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import getCurrentUser from "../API/Voter";
 
 const IndividualResult = () => {
   const navigate = useNavigate();
+  const voter = getCurrentUser();
+
   return (
     <div className="container">
       <div className="main-mobile">
-        <h1>Din stemme er optalt</h1>
+        <h1 className="blue-text">Vote Verification</h1>
 
         <Box
           bg="var(--secondary_blue)"
@@ -19,12 +22,8 @@ const IndividualResult = () => {
           w={"100%"}
         >
           <Text className="info-text">
-            Hvis den optalte stemme herunder ikke svarer til det, du har
-            angivet, bedes du kontakte valgstyrelsen{" "}
-            <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-              her
-            </Link>
-            .
+            <span className="bold-text">NB!</span> If your vote is not counted
+            correctly, please follow the guidelines in the instruction paper.
           </Text>
         </Box>
 
@@ -43,25 +42,24 @@ const IndividualResult = () => {
           display={"flex"}
           justifyContent={"center"}
         >
-          <p>Pia Olsen Dyhr</p>
+          <p>Emma Miller (Party J)</p>
         </Box>
         <Box className="intro-text" marginTop={"1rem"} marginBottom={"1rem"}>
           <p>
-            Såfremt du ønsker at se hele resultatlisten, klik{" "}
+            If you wish to see all counted votes, please click {" "}
             <Link
               className="link-bold"
               onClick={() => navigate("/bulletinboard")}
             >
-              her
+              here
             </Link>
             .
           </p>
           <p>
-            Her kan du ligeledes tjekke, om din stemme er afgivet korrekt ved at
-            bruge denne verifikationskode:
+            There, you can also verify your vote by using the following code:
           </p>
         </Box>
-        <p className="bold">CWTL-DMDpLZDSvR</p>
+        <p className="bold blue-text">bAdJhFVz6aFrJTa-F86I5HTe</p>
 
         <GridItem className="btn-container-vertical">
           <Button
