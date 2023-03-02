@@ -1,18 +1,21 @@
 import "./App.css";
+import "./Info-Pages/InfoPages.css"
+import "./Voting-System/VotingSystem.css"
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import BulletinBoard from "./BulletinBoard/BulletinBoard";
-import Confirmation from "./Confirmation/Confirmation";
-import Navbar from "./Navbar/Navbar";
-import VotingScheme from "./VotingScheme/VotingScheme";
-import Survey from "./Survey/Survey";
-import Break from "./Break/Break";
-import Welcome from "./Welcome/Welcome";
+import VoteVerification from "./Voting-System/VoteVerification/VoteVerification";
+import IndividualVoteVerification from "./Voting-System/VoteVerification/IndividualVoteVerification";
+import Confirmation from "./Voting-System/Confirmation/Confirmation";
+import Voting from "./Voting-System/Voting/Voting";
+import Info3 from "./Info-Pages/Info-3";
+import Info2 from "./Info-Pages/Info-2";
+import Welcome from "./Info-Pages/Welcome";
+import Info1 from "./Info-Pages/Info-1";
+import Reporting from "./Voting-System/Reporting/Reporting";
 import Parse from "parse";
-import LegalInfo from "./LegalInfo/LegalInfo";
 
-const PARSE_APPLICATION_ID = "UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL";
+const PARSE_APPLICATION_ID = "MaAoTsKJsRyfyBlSktyLHRBhX5FPAY1lRUaFU4B1";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
-const PARSE_JAVASCRIPT_KEY = "S1tyiUfA5PBsAiER8l8K7YqpPXVg1wpCbQ1F7gty";
+const PARSE_JAVASCRIPT_KEY = "a9oo1X4u7pcPeccWqOO5scV1k9RD7QWaXhFhjpQc";
 
 Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 
@@ -23,16 +26,17 @@ function App() {
     <div className="App">
       <div id="app-main">
         <BrowserRouter>
-          <Navbar />
-          <Routes>
+       <Routes>
             <Route path="/" element={<Navigate to="/welcome" />} />
-            <Route path="/voting" element={<VotingScheme />} />
-            <Route path="/confirmation" element={<Confirmation />} />
-            <Route path="/bulletinboard" element={<BulletinBoard />} />
-            <Route path="/survey" element={<Survey />} />
             <Route path="/welcome" element={<Welcome />} />
-            <Route path="/break" element={<Break />} />
-            <Route path="/legalinfo" element={<LegalInfo />} />
+            <Route path="/info-1" element={<Info1 />} />
+            <Route path="/voting" element={<Voting />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/info-2" element={<Info2 />} />
+            <Route path="/vote-verification" element={<VoteVerification />} />
+            <Route path="/individual-vote-verification" element={<IndividualVoteVerification />} />
+            <Route path="/info-3" element={<Info3 />} />
+            <Route path="reporting" element={<Reporting/>}/>
           </Routes>
         </BrowserRouter>
       </div>
