@@ -29,10 +29,9 @@ export async function saveVerificationCode(verificationCode){
   }
 }
 
-export async function saveVote(vote, bbVote){
+export async function saveVote(vote){
   const Voter = getCurrentUser();
   Voter.set("Vote", vote);
-  Voter.set("BBVote", bbVote);
   try{
     await Voter.save();
     console.log("voter");
