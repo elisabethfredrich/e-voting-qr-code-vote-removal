@@ -1,0 +1,67 @@
+@media (max-width: 960px) {
+  .result-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: max-content 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .result-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 4rem;
+    border-bottom: solid 1px #d9d9d9;
+    padding-left: 0.5rem;
+  }
+}
+
+.result-grid:last-child {
+  border-bottom: 0px !important;
+}
+
+.error-text-bb {
+  display: none;
+  color: var(--secondary-darkred);
+  margin-top: 0;
+}
+
+.verification-code-bb {
+  color: var(--primary_blue);
+  font-weight: 600;
+}
+
+.accordion-button {
+  flex: 1;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Individual Vote Verification */
+.individual-vote-display {
+  color: var(--primary_blue);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 3rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border: solid 1px var(--light_grey);
+  display: flex;
+  justify-content: center;
+}
+
+.link-bold {
+  color: var(--primary_blue) !important;
+  text-decoration: underline !important;
+  font-weight: 600;
+}
+
+.verification-code-individual-page {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary_blue);
+}
