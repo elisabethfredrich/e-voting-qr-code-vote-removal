@@ -1,6 +1,5 @@
 {
-  "homepage": "https://helher.github.io/qr-verification",
-  "name": "qr-verification",
+  "name": "e-voting",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
