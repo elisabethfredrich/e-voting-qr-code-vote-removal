@@ -17,17 +17,19 @@ export default function IndividualVoteVerification() {
             <span className="bold-text">NB!</span> If your vote is not counted
             correctly, please follow the guidelines in the instruction paper.
           </Text>
+
         </Box>
+          <Text className="centered-text" mt={"1.5rem"}>Below you can see your counted vote:</Text>
 
         <Box className="individual-vote-display">
-          <Text>Sarah Miller (Party J)</Text>
+          <Text></Text>
         </Box>
         <Box>
           <Text>
             If you wish to see all counted votes, please click{" "}
             <Link
               className="link-bold"
-              onClick={() => navigate("/vote-verification")}
+              onClick={() => navigate("/verification")}
             >
               here
             </Link>
@@ -38,7 +40,6 @@ export default function IndividualVoteVerification() {
           </Text>
         </Box>
         <Text className="verification-code-individual-page">
-          bAdJhFVz6aFrJTa-F86I5HTe
         </Text>
 
         <GridItem className="btn-container-vertical">
