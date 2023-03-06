@@ -50,6 +50,7 @@ export default function IndividualVoteVerification() {
             className="blue-btn"
             width={"100%"}
             onClick={() => navigate("/info-3")}
+            mt="6rem"
           >
             Close
           </Button>
