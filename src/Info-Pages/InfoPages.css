@@ -14,14 +14,15 @@
 }
 
 .container-info-pages {
-  background-color: var(--primary-orange);
-  color: white !important;
-  min-height: 100vh !important;
-  font-family: "Noto Sans", "sans serif";
-  padding: 5rem 2rem 5rem 2rem;
-  justify-content: center;
-  display: flex;
-}
+  background: var(--primary-orange);
+  background: linear-gradient(0deg, rgba(250,135,53,1) 0%, rgba(233,136,1,1) 49%, rgba(255,174,64,1) 100%); 
+   color: white !important;
+   min-height: 100vh !important;
+   font-family: "Noto Sans", "sans serif";
+   padding: 5rem 2rem 5rem 2rem;
+   justify-content: center;
+   display: flex;
+ }
 
 .inner-box-info {
   max-width: 48rem;
