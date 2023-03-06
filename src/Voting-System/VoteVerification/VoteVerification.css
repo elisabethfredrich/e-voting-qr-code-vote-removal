@@ -66,9 +66,15 @@
   font-weight: 600;
 }
 
+.bb-code-container{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .verification-code-individual-page {
-  text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary_blue);

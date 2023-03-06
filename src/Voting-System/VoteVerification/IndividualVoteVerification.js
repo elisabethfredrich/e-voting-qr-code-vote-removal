@@ -27,7 +27,7 @@ export default function IndividualVoteVerification() {
         <Box className="individual-vote-display">
           <Text></Text>
         </Box>
-        <Box>
+        <Box className="bb-code-container">
           <Text>
             If you wish to see all counted votes, please click{" "}
             <Link
