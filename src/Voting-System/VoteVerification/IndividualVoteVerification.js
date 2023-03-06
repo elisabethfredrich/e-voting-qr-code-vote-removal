@@ -3,11 +3,14 @@ import React from "react";
 import "./VoteVerification.css";
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 export default function IndividualVoteVerification() {
   const navigate = useNavigate();
 
   return (
+    <div>
+       <Navbar/>
     <div className="outer-page-container">
       <div className="inner-page-container-wide">
         <h1 className="blue-text centered-text">Vote Verification</h1>
@@ -52,6 +55,7 @@ export default function IndividualVoteVerification() {
           </Button>
         </GridItem>
       </div>
+    </div>
     </div>
   );
 }
