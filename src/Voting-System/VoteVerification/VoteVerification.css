@@ -46,15 +46,14 @@
   font-weight: 600;
 }
 
-
 /* Individual Vote Verification */
 .individual-vote-display {
   color: var(--primary_blue);
   font-weight: 600;
   font-size: 1.2rem;
   padding: 3rem 1rem;
-  margin-top: 0.4rem;
-  margin-bottom: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
   border: solid 1px var(--light_grey);
   display: flex;
   justify-content: center;
@@ -66,19 +65,14 @@
   font-weight: 600;
 }
 
-.bb-code-container{
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .verification-code-individual-page {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
-  padding-left: 1rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary_blue);
 }
+
 
 /* clears the ‘X’ from Internet Explorer */
 input[type=search]::-ms-clear { display: none; width : 0; height: 0; }

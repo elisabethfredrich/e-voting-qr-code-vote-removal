@@ -1,14 +1,14 @@
-import Parse from 'parse';
+import Parse from "parse";
 
 export async function addVoter(ID) {
-let user = new Parse.User();
-user.set("username", ID);
-user.set("password", ID);
-try {
+  let user = new Parse.User();
+  user.set("username", ID);
+  user.set("password", ID);
   await user.signUp();
-} catch (error) {
-  console.log(`Could not save new user: ${error}`);
 }
+
+export async function loginVoter(ID) {
+  await Parse.User.logIn(ID, ID);
 }
 
 export default function getCurrentUser() {
@@ -16,27 +16,23 @@ export default function getCurrentUser() {
   return currentUser;
 }
 
-export async function saveVote(vote){
+export async function saveVote(vote) {
   const Voter = getCurrentUser();
   Voter.set("Vote", vote);
-  try{
+  try {
     await Voter.save();
     console.log("voter");
-  }
-  catch (error){
+  } catch (error) {
     console.log("Error saving vote: " + error);
   }
 }
 
-export async function saveReportOfProblem(problem){
+export async function saveReportOfProblem(problem) {
   const Voter = getCurrentUser();
   Voter.set("Problem_Reporting", problem);
-  try{
+  try {
     await Voter.save();
-  }
-  catch(error){
+  } catch (error) {
     console.log("Error saving report of problem: " + error);
-
   }
-
 }

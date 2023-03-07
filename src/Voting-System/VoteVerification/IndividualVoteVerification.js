@@ -10,53 +10,51 @@ export default function IndividualVoteVerification() {
 
   return (
     <div>
-       <Navbar/>
-    <div className="outer-page-container">
-      <div className="inner-page-container-wide">
-        <h1 className="blue-text centered-text">Vote Verification</h1>
+      <Navbar />
+      <div className="outer-page-container">
+        <div className="inner-page-container-wide">
+          <h1 className="blue-text centered-text">Vote Verification</h1>
 
-        <Box className="info-box">
-          <Text className="info-text">
-            <span className="bold-text">NB!</span> If your vote is not counted
-            correctly, please follow the guidelines in the instruction paper.
-          </Text>
+          <Box className="info-box">
+            <Text className="info-text">
+              <span className="bold-text">NB!</span> If your vote is not counted
+              correctly, please follow the guidelines in the instruction paper.
+            </Text>
+          </Box>
+          <Text mt={"1.5rem"}>Below you can see your counted vote:</Text>
 
-        </Box>
-          <Text className="centered-text" mt={"1.5rem"}>Below you can see your counted vote:</Text>
+          <Box className="individual-vote-display">
+            <Text></Text>
+          </Box>
+          <Box>
+            <Text>
+              If you wish to see all counted votes, please click{" "}
+              <Link
+                className="link-bold"
+                onClick={() => navigate("/verification")}
+              >
+                here
+              </Link>
+              .
+            </Text>
+            <Text>
+              There, you can also verify your vote by using the following code:
+            </Text>
+          </Box>
+          <Text className="verification-code-individual-page"></Text>
 
-        <Box className="individual-vote-display">
-          <Text></Text>
-        </Box>
-        <Box className="bb-code-container">
-          <Text>
-            If you wish to see all counted votes, please click{" "}
-            <Link
-              className="link-bold"
-              onClick={() => navigate("/verification")}
+          <GridItem className="btn-container-vertical">
+            <Button
+              className="blue-btn"
+              width={"100%"}
+              onClick={() => navigate("/info-3")}
+              mt="6rem"
             >
-              here
-            </Link>
-            .
-          </Text>
-          <Text>
-            There, you can also verify your vote by using the following code:
-          </Text>
-        </Box>
-        <Text className="verification-code-individual-page">
-        </Text>
-
-        <GridItem className="btn-container-vertical">
-          <Button
-            className="blue-btn"
-            width={"100%"}
-            onClick={() => navigate("/info-3")}
-            mt="6rem"
-          >
-            Close
-          </Button>
-        </GridItem>
+              Close
+            </Button>
+          </GridItem>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
