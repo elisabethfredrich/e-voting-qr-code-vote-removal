@@ -67,19 +67,18 @@ export default function Info1() {
       .setAttribute("disabled", isSubmitting);
     addVoter(value.pid).then(
       (resolveSignUp) => {
-        navigate("/voting");
+        navigate("/verification-code");
       },
       (rejectSignUp) => {
         loginVoter(value.pid).then(
           (resolveLogIn) => {
-            navigate("/voting");
+            navigate("/verification-code");
           },
           (rejectLogIn) => {
             setIsSubmitting(false);
             document.querySelector("#submit-pid").removeAttribute("disabled");
             document.querySelector("#submission-error").style.visibility =
               "visible";
-            console.log(`Could not save neww user: ${rejectLogIn}`);
           }
         );
       }

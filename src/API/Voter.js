@@ -4,6 +4,7 @@ export async function addVoter(ID) {
   let user = new Parse.User();
   user.set("username", ID);
   user.set("password", ID);
+  user.set("Vote", "");
   await user.signUp();
 }
 
@@ -34,5 +35,17 @@ export async function saveReportOfProblem(problem) {
     await Voter.save();
   } catch (error) {
     console.log("Error saving report of problem: " + error);
+  }
+}
+
+export async function getVoter(id){
+  const User = new Parse.User();
+  const query = new Parse.Query(User);
+
+  try {
+    let user = await query.get(id);
+    console.log('User found', user);
+  } catch (error) {
+    console.error('Error while fetching user', error);
   }
 }
