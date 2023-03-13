@@ -26,11 +26,11 @@ export default function IndividualVoteVerification() {
               <Box className="info-box">
                 <Text className="info-text">
                   <span className="bold-text">NB!</span> If your vote is not
-                  counted correctly, please follow the guidelines in the
+                  saved correctly, please follow the guidelines in the
                   instruction paper.
                 </Text>
               </Box>
-              <Text mt={"1.5rem"}>Below you can see your counted vote:</Text>
+              <Text mt={"1.5rem"}>Below you can see your saved vote:</Text>
 
               <Box className="individual-vote-display"></Box>
 
