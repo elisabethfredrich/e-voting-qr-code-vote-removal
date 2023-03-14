@@ -37,6 +37,7 @@ function App() {
             <Route path="/verification/:id" element={<IndividualVoteVerification />} />
             <Route path="/info-3" element={<Info3 />} />
             <Route path="reporting" element={<Reporting/>}/>
+            <Route path="/*" element={<Navigate to="/invalid-url" />} />
           </Routes>
         </BrowserRouter>
       </div>
