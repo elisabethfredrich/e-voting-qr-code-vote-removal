@@ -99,7 +99,7 @@ export default function VoteVerification() {
   return (
     <div>
       <Navbar />
-      {/* <div className="outer-page-container"> */}
+    
 
       <Grid className="container-outer-page">
     
@@ -121,7 +121,7 @@ export default function VoteVerification() {
     
           </GridItem>
    
-        {/*   <Grid className="verification-content"" */}
+     
 
         <Grid className="verification-content">
        
@@ -225,18 +225,12 @@ export default function VoteVerification() {
                 ))}
               </Accordion>
             )}
-            <Button
-              className="blue-btn"
-              width={"100%"}
-              onClick={() => navigate("/info-3")}
-            >
-              Close
-            </Button>
+        
          
         </Grid>
       </Grid>
-      {/* </Grid> */}
+  
     </div>
-    /*  </div> */
+
   );
 }

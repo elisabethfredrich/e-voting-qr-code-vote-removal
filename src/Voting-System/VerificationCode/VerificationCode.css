@@ -23,3 +23,36 @@
    width:0px;
   }
 
+  .verification-code-example-picture{
+    display: flex;
+    max-width: 25rem;
+    flex-direction: column;
+    padding-left: 5rem;
+    margin-top: 5rem; 
+    /* border-left: solid 1px var(--light_grey); */
+  }
+  
+  .figcaption-verification-example{
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: grey;
+  }
+
+  .margin-top-picture{
+    margin-top: 7rem;
+  }
+
+  .margin-left{
+    margin-left: 3rem;
+  }
+  
+  .margin-right{
+    margin-right: 5rem;
+  }
+
+  .picture-example-bb{
+    margin-top: 8rem;
+  }
+
+
