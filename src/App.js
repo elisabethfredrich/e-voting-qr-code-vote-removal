@@ -6,7 +6,6 @@ import VoteVerification from "./Voting-System/VoteVerification/VoteVerification"
 import IndividualVoteVerification from "./Voting-System/VoteVerification/IndividualVoteVerification";
 import Confirmation from "./Voting-System/Confirmation/Confirmation";
 import Voting from "./Voting-System/Voting/Voting";
-import Info3 from "./Info-Pages/Info-3";
 import Info2 from "./Info-Pages/Info-2";
 import Info1 from "./Info-Pages/Info-1";
 import Reporting from "./Voting-System/Reporting/Reporting";
@@ -35,7 +34,6 @@ function App() {
             <Route path="/info-2" element={<Info2 />} />
             <Route path="/verification" element={<VoteVerification />} />
             <Route path="/verification/:id" element={<IndividualVoteVerification />} />
-            <Route path="/info-3" element={<Info3 />} />
             <Route path="reporting" element={<Reporting/>}/>
             <Route path="/*" element={<Navigate to="/invalid-url" />} />
           </Routes>
