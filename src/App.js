@@ -11,7 +11,7 @@ import Info1 from "./Info-Pages/Info-1";
 import Reporting from "./Voting-System/Reporting/Reporting";
 import Parse from "parse";
 import VerificationCode from "./Voting-System/VerificationCode/VerificationCode";
-
+import Error from "./Voting-System/Error/Error"
 const PARSE_APPLICATION_ID = "pzyT2tanDNkEYFCpW0os9mzCQagkCqdr8SFaqNUa";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
 const PARSE_JAVASCRIPT_KEY = "LnMuO8tFqDcVRFzNH3YGDvzglcTJRGNYFgurraxj";
@@ -35,6 +35,7 @@ function App() {
             <Route path="/verification" element={<VoteVerification />} />
             <Route path="/verification/:id" element={<IndividualVoteVerification />} />
             <Route path="reporting" element={<Reporting/>}/>
+            <Route path="invalid-url" element={<Error/>}/>
             <Route path="/*" element={<Navigate to="/invalid-url" />} />
           </Routes>
         </BrowserRouter>
