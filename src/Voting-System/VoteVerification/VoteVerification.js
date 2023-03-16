@@ -269,7 +269,7 @@ export default function VoteVerification() {
                 left={"-19.99"}
                 onClick={() =>
                   (window.location.href =
-                    "https://www.survey-xact.dk/LinkCollector?key=TC9S9SFFJPC5")
+                    "https://www.survey-xact.dk/LinkCollector?key=5SVF9X6XL695")
                 }
               >
                 Go to survey
