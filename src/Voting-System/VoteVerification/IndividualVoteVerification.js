@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import { loginVoter } from "../../API/Voter";
 import { useState } from "react";
 import getCurrentUser from "../../API/Voter";
-import { slideOut } from "../../utils";
+import { slideOutMobile } from "../../utils";
 
 
 
@@ -58,7 +58,7 @@ return () => {
 
               <Box className="individual-vote-display"></Box>
 
-              <Box>
+              <Box marginRight={"2rem"}>
                 <Text>
                   If you wish to see all counted votes, please click{" "}
                   <Link
@@ -81,7 +81,7 @@ return () => {
                 <Link
                   id="slideout-trigger"
                   className="slideout-trigger"
-                  onClick={() => slideOut()}
+                  onClick={() => slideOutMobile()}
                 >{`>`}</Link>
                 <div className="info-banner-content">
                   <div id="banner-text">
