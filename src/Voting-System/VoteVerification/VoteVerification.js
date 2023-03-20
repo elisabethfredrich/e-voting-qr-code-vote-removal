@@ -224,7 +224,7 @@ export default function VoteVerification() {
               ))}
             </Accordion>
           )}
-          <Grid className="info-banner" id="info-banner">
+          {/* <Grid className="info-banner" id="info-banner">
           <Link
             id="slideout-trigger"
             className="slideout-trigger"
@@ -274,7 +274,14 @@ export default function VoteVerification() {
               </Button>
             </div>
           </div>
-        </Grid>
+        </Grid> */}
+           <Button
+                    className="blue-btn"
+                    width={"100%"}
+                    onClick={() => navigate("/info-3")}
+                  >
+                    Finish
+                  </Button>
           </div>
           )}
         </div>:(
