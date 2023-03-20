@@ -23,11 +23,13 @@ import Navbar from "../Navbar/Navbar";
 import PopOverDiagram from "./PopoverDiagram";
 import getCurrentUser from "../../API/Voter";
 import { slideOut } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 
 export default function VoteVerification() {
   const [input, setInput] = useState("");
   const voter = getCurrentUser();
+  const navigate = useNavigate();
 
 
   let results = Results.votes.sort((a, b) => {
