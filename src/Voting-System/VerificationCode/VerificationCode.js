@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Button, Text, Checkbox, Flex, Grid, Image, GridItem, Box } from "@chakra-ui/react";
+import {
+  Button,
+  Text,
+  Checkbox,
+  Flex,
+  Grid,
+  Image,
+} from "@chakra-ui/react";
 import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
 import getCurrentUser from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 import PDFgenerator from "./PDFgenerator";
-import PopOverVerificationCode from "./PopOverVerificationCode";
 import VerificationCodeExample from "../../assets/Example_VerificationCode.png";
-import IndividualBBExampe from "../../assets/IndividualBB_Example.png";
 
 export default function VerificationCode() {
   const navigate = useNavigate();
@@ -40,8 +45,21 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-<Grid gridTemplateColumns={"1fr"} gap={"7rem"}>
-<div className="inner-page-container-wide margin-left margin-right">
+        <Grid className="verification-code-grid">
+          <div className="verification-code-example-picture">
+            <Image
+              className="picture-example-bb"
+              src={VerificationCodeExample}
+              width={"100%"}
+              height={"auto"}
+              border={"solid 1px var(--light_grey)"}
+            />
+            <figcaption className="figcaption-verification-example">
+              The official webpage with all verification codes linked to their
+              vote.
+            </figcaption>
+          </div>
+          <div className="inner-page-container-wide">
             <Flex
               id="generated-verification-code"
               className="generated-verification-code-container"
@@ -63,10 +81,25 @@ export default function VerificationCode() {
                 vote.
               </Text>
 
+              <div className="verification-code-example-picture-mobile">
+                <Image
+                  className="picture-example-bb"
+                  src={VerificationCodeExample}
+                  width={"100%"}
+                  height={"auto"}
+                  border={"solid 1px var(--light_grey)"}
+                />
+                <figcaption className="figcaption-verification-example">
+                  The official webpage with all verification codes linked to
+                  their vote.
+                </figcaption>
+              </div>
+
               <Text className="text-margin-top">
                 You also have the opportunity to scan a QR code, which will you
                 only show you the vote that has been registered for your QR
-                code. You get your QR code by downloading your code below. {/* The
+                code. You get your QR code by downloading your code below.{" "}
+                {/* The
                 picture 2 to right illustrates how this will look like. */}
               </Text>
 
@@ -79,39 +112,39 @@ export default function VerificationCode() {
                 NB! You need to keep this code until the end of the election!
               </Text>
 
-            <Grid className="verification-code-box centered-text">
-              <h3>fPdJhDVz9aEkJOa-P76d4HRe</h3>
+              <Grid className="verification-code-box centered-text">
+                <h3>fPdJhDVz9aEkJOa-P76d4HRe</h3>
 
-              <Button className="blue-btn" width={"15rem"}>
-                <Text display={"flex"}>
-                  <span className="material-symbols-outlined medium-icon margin-right-icon">
-                    download
-                  </span>
-                </Text>
-                {<PDFgenerator voterId={voter.attributes.username} />}
+                <Button className="blue-btn" width={"15rem"}>
+                  <Text display={"flex"}>
+                    <span className="material-symbols-outlined medium-icon margin-right-icon">
+                      download
+                    </span>
+                  </Text>
+                  {<PDFgenerator voterId={voter.attributes.username} />}
+                </Button>
+              </Grid>
+              <Checkbox
+                className="check-box"
+                id="checkBox"
+                isChecked={checked}
+                onChange={handleChange}
+                isInvalid={invalid}
+              >
+                I have downloaded or saved my verification code.
+              </Checkbox>
+              <Button
+                onClick={handleSubmitVerificationCode}
+                className="blue-btn"
+                disabled={disabledButton}
+              >
+                Vote now
               </Button>
-            </Grid>
-            <Checkbox
-              className="check-box"
-              id="checkBox"
-              isChecked={checked}
-              onChange={handleChange}
-              isInvalid={invalid}
-            >
-              I have downloaded or saved my verification code.
-            </Checkbox>
-            <Button
-              onClick={handleSubmitVerificationCode}
-              className="blue-btn"
-              disabled={disabledButton}
-            >
-              Vote now
-            </Button>
-          </Flex>
-        </div>
-          </Grid>
+            </Flex>
+          </div>
+        </Grid>
 
-          <div className="verification-code-example-picture">
+        <div className="verification-code-example-picture">
           <Image
             className="picture-example-bb"
             src={VerificationCodeExample}
@@ -124,7 +157,7 @@ export default function VerificationCode() {
             vote.
           </figcaption>
 
-   {/*        <Image
+          {/*        <Image
             className="picture-example-bb"
             src={IndividualBBExampe}
             width={"100%"}

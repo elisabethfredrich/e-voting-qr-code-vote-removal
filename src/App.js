@@ -12,6 +12,7 @@ import Reporting from "./Voting-System/Reporting/Reporting";
 import Parse from "parse";
 import VerificationCode from "./Voting-System/VerificationCode/VerificationCode";
 import Error from "./Voting-System/Error/Error"
+import { useEffect } from "react";
 const PARSE_APPLICATION_ID = "pzyT2tanDNkEYFCpW0os9mzCQagkCqdr8SFaqNUa";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
 const PARSE_JAVASCRIPT_KEY = "LnMuO8tFqDcVRFzNH3YGDvzglcTJRGNYFgurraxj";
@@ -21,6 +22,11 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="App">
       <div id="app-main">

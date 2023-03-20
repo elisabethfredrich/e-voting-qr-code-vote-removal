@@ -100,9 +100,11 @@ export default function Info1() {
                     <Text>1</Text>
                   </GridItem>
                   <GridItem className="info1-steps-griditem">
+                  <Text>
                     All candidates are fictional and for the purpose of this
                     study we ask you to vote for{" "}
                     <span className="bold-text red-text">Sarah Wilson.</span>
+                    </Text>
                     <Checkbox
                       className="check-box check-box-red"
                       isChecked={checked}
@@ -166,7 +168,8 @@ export default function Info1() {
                       id="submit-pid"
                       type="submit"
                       className="red-btn"
-                      disabled={disabledButton}
+                      isDisabled={disabledButton}
+                      mt={"1rem"}
                     >
                       {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Start
                     </Button>

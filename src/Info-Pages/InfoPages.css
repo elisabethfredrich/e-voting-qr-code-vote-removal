@@ -14,14 +14,14 @@
 }
 
 .container-info-pages {
-  background: var(--primary-orange);
-   color: white !important;
-   min-height: 100vh !important;
-   font-family: "Noto Sans", "sans serif";
-   padding: 5rem 2rem 5rem 2rem;
-   justify-content: center;
-   display: flex;
- }
+  background-color: var(--primary-orange);
+  color: white !important;
+  min-height: 100vh !important;
+  font-family: "Noto Sans", "sans serif";
+  padding: 5rem 2rem 5rem 2rem;
+  justify-content: center;
+  display: flex;
+}
 
 .inner-box-info {
   max-width: 48rem;
@@ -79,6 +79,13 @@
   margin-top: 1rem;
   font-size: 1.1rem;
 }
+
+.error-text-db-submission{
+  color:var(--secondary-darkred);
+  visibility: hidden;
+text-align: center;
+
+  }
 
 /* buttons */
 @media (max-width: 960px) {
@@ -147,6 +154,8 @@ padding-top: 0;  }
   padding-bottom: 2rem;
   border-bottom: solid 1px white;
   padding: 3rem 1rem;
+  display: flex !important;
+  flex-direction: column;
 }
 
 .info1-steps-numbers {

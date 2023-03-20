@@ -13,13 +13,12 @@ import {
   AccordionIcon,
   AccordionItem,
 } from "@chakra-ui/react";
-import { React, useEffect } from "react";
+import { React } from "react";
 import Results from "../../JSON/results.json";
 import "./VoteVerification.css";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import PopOverDiagram from "./PopoverDiagram";
 import getCurrentUser from "../../API/Voter";
@@ -28,7 +27,6 @@ import { slideOut } from "../../utils";
 
 export default function VoteVerification() {
   const [input, setInput] = useState("");
-  const navigate = useNavigate();
   const voter = getCurrentUser();
 
 
@@ -39,11 +37,7 @@ export default function VoteVerification() {
       return 1;
     }
   });
-  
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   const makeAccordion = () => {
     let firstLetter = results[0].code[0].toUpperCase();
@@ -104,28 +98,32 @@ export default function VoteVerification() {
   return (
     <div>
       <Navbar />
-
       <Grid className="container-outer-page">
-        <GridItem className="video-and-results">
-        <Box display={voter.attributes.Vote === "" ? "none" : "box"}>
+
+      <GridItem className="video-and-results">
+      <h1 className="blue-text headline-mobile">Vote verification</h1>
+
+          {voter!==null&&
+          <Box display={voter.attributes.Vote === "" ? "none" : "box"}>
             <h3 className="headline-results">
               Result of General Election 2023
             </h3>
             <PopOverDiagram />
-          </Box>
-
+          </Box>}
           <h3 className="headline-results">Demo video</h3>
+          <Box>
           <iframe
+          title="demo-video"
             allow="fullscreen"
             className="demo-video"
-            width="380"
-            height="220"
             src="https://www.youtube.com/embed/pV51zCm4NL4"
           ></iframe>
+          </Box>
         </GridItem>
 
         <Grid className="verification-content">
-          <h1 className="blue-text">Vote verification</h1>
+          <h1 className="blue-text headline-desktop">Vote verification</h1>
+        {voter!==null?<div>
           {voter.attributes.Vote === "" ? (
                   <Text className="red-text">
                   The election results are not available yet.
@@ -279,6 +277,12 @@ export default function VoteVerification() {
         </Grid>
           </div>
           )}
+        </div>:(
+            <Text className="red-text">
+              The election results are not available yet.
+              <br /> Please try again later.
+            </Text>
+          ) }
         </Grid>
       </Grid>
     </div>

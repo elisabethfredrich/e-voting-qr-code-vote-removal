@@ -38,7 +38,6 @@ export function slideOutMobile() {
   document.querySelector("#survey-button-vertical").style.visibility =
     "visible";
   document.querySelector("#survey-button-vertical").style.width = "8rem";
-  document.querySelector("#survey-button-vertical").style.width = "8rem";
   document.querySelector("#slideout-trigger").innerHTML = "";
 }
 
