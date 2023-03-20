@@ -21,6 +21,8 @@
 
 .inner-page-container-wide{
   max-width: 33rem;
+  justify-self: center;
+
 }
 
 .header {
