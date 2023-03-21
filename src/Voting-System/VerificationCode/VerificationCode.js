@@ -45,72 +45,24 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-        <Grid className="verification-code-grid">
-          <div className="verification-code-example-picture">
-            <Image
-              className="picture-example-bb"
-              src={VerificationCodeExample}
-              width={"100%"}
-              height={"auto"}
-              border={"solid 1px var(--light_grey)"}
-            />
-            <figcaption className="figcaption-verification-example">
-              The official webpage with all verification codes linked to their
-              vote.
-            </figcaption>
-          </div>
+      
           <div className="inner-page-container-wide">
-            <Flex
-              id="generated-verification-code"
-              className="generated-verification-code-container"
-            >
-              <h1 className="blue-text">Welcome</h1>
-              <Text>Welcome to the General Election 2023!</Text>
-              <Text className="text-margin-top">
-                In order to ensure the correctness of the election result in
-                this online election, it is important that you verify your vote
-                later in the process. For this purpose, you will need a unique
-                verification code which will be linked to your vote. In the box
-                below further down, you will find your unique verification code.
-              </Text>
-              <Text className="text-margin-top">
-                After the election result is published, you need to visit our
-                official webpage and search for your verification code between
-                all the codes. The picture to right illustrates how it will look
-                like with all the verification codes being linked their specific
-                vote.
-              </Text>
+          <h1 className="blue-text">Verification Code</h1>
 
-              <div className="verification-code-example-picture-mobile">
-                <Image
-                  className="picture-example-bb"
-                  src={VerificationCodeExample}
-                  width={"100%"}
-                  height={"auto"}
-                  border={"solid 1px var(--light_grey)"}
-                />
-                <figcaption className="figcaption-verification-example">
-                  The official webpage with all verification codes linked to
-                  their vote.
-                </figcaption>
-              </div>
+          <Text className="text-margin-top">
+            You find your unique verification code in the box below. Please
+            download your code or save it somewhere, where you can find it
+            again. Do not share your code with others!
+          </Text>
 
-              <Text className="text-margin-top">
-                You also have the opportunity to scan a QR code, which will you
-                only show you the vote that has been registered for your QR
-                code. You get your QR code by downloading your code below.{" "}
-                {/* The
-                picture 2 to right illustrates how this will look like. */}
-              </Text>
+          <Text className="text-margin-top">
+            In the downloaded file, you will also find your verification code as
+            a QR code.
+          </Text>
 
-              <Text className="text-margin-top">
-                Please download your code or save it somewhere, where you can
-                find it again. Do not share your code with others!
-              </Text>
-
-              <Text className="text-margin-top" fontWeight="600">
-                NB! You need to keep this code until the end of the election!
-              </Text>
+          <Text className="text-margin-top" fontWeight="600">
+            NB! You need to keep this code until the end of the election!
+          </Text>
 
               <Grid className="verification-code-box centered-text">
                 <h3>fPdJhDVz9aEkJOa-P76d4HRe</h3>
@@ -139,34 +91,8 @@ export default function VerificationCode() {
                 disabled={disabledButton}
               >
                 Vote now
-              </Button>
-            </Flex>
-          </div>
-        </Grid>
-
-        <div className="verification-code-example-picture">
-          <Image
-            className="picture-example-bb"
-            src={VerificationCodeExample}
-            width={"100%"}
-            height={"auto"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            The official webpage with all verification codes linked to their
-            vote.
-          </figcaption>
-
-          {/*        <Image
-            className="picture-example-bb"
-            src={IndividualBBExampe}
-            width={"100%"}
-            height={"auto"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            Picture 2: After scanning your QR-code, you will see your saved voted. 
-          </figcaption> */}
+              </Button> 
+    
         </div>
       </div>
     </div>

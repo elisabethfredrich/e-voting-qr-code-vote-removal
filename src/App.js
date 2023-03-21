@@ -10,6 +10,7 @@ import Info2 from "./Info-Pages/Info-2";
 import Info1 from "./Info-Pages/Info-1";
 import Info3 from "./Info-Pages/Info-3";
 import Reporting from "./Voting-System/Reporting/Reporting";
+import Welcome from "./Voting-System/Welcome/Welcome";
 import Parse from "parse";
 import VerificationCode from "./Voting-System/VerificationCode/VerificationCode";
 import Error from "./Voting-System/Error/Error"
@@ -35,6 +36,7 @@ function App() {
        <Routes>
             <Route path="/" element={<Navigate to="/info-1" />} />
             <Route path="/info-1" element={<Info1 />} />
+            <Route path="/welcome" element={<Welcome />} />
             <Route path="/verification-code" element={<VerificationCode />} />
             <Route path="/voting" element={<Voting />} />
             <Route path="/confirmation" element={<Confirmation />} />
