@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./InfoPages.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -25,6 +25,10 @@ export default function Info1() {
   const [disabledButton, setDisabled] = useState(true);
   const [downloaded, setDownloaded] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -67,12 +71,12 @@ export default function Info1() {
       .setAttribute("disabled", isSubmitting);
     addVoter(value.pid).then(
       (resolveSignUp) => {
-        navigate("/verification-code");
+        navigate("/welcome");
       },
       (rejectSignUp) => {
         loginVoter(value.pid).then(
           (resolveLogIn) => {
-            navigate("/verification-code");
+            navigate("/welcome");
           },
           (rejectLogIn) => {
             setIsSubmitting(false);

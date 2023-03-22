@@ -24,10 +24,6 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   
   return (
     <div className="App">
