@@ -4,7 +4,6 @@ import {
   Input,
   Box,
   Text,
-  Link,
   InputGroup,
   InputLeftElement,
   Accordion,
@@ -21,7 +20,6 @@ import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import getCurrentUser from "../../API/Voter";
-import { slideOut } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import Result from "../../assets/Diagram-Result.png";
 
@@ -64,7 +62,6 @@ export default function VoteVerification() {
   const search = () => {
     if (input.length === 0) {
       document.querySelector("#error-text").style.display = "none";
-      // document.querySelector("#success-text").style.display = "none";
     }
     const table = document.querySelector("#result-table");
     const children = table.childNodes; // get all children
@@ -81,14 +78,8 @@ export default function VoteVerification() {
 
     let message;
     document.querySelector("#error-text").style.display = "none";
-    //document.querySelector("#success-text").style.display = "none";
 
-    if (
-      /* (counter === 1 && input.length === 17) {
-      message = document.querySelector("#success-text");
-      message.style.display = "block";
-    } else if  */ counter === 0
-    ) {
+    if (counter === 0) {
       message = document.querySelector("#error-text");
       message.style.display = "block";
     }
@@ -124,7 +115,7 @@ export default function VoteVerification() {
               title="demo-video"
               allow="fullscreen"
               className="demo-video"
-              src="https://www.youtube.com/embed/pV51zCm4NL4"
+              src="https://www.youtube.com/watch?v=SW55sw8sDis"
             ></iframe>
           </Box>
         </GridItem>
@@ -154,7 +145,7 @@ export default function VoteVerification() {
                     <Text className="info-text">
                       <span className="bold-text">NB!</span> If your vote is not
                       saved correctly or you cannot find your verification code,
-                      please follow the guidelines in the instruction paper and
+                      please follow the guidelines in the instruction letter and
                       report the issue.
                     </Text>
                   </Box>
@@ -181,21 +172,9 @@ export default function VoteVerification() {
                       Have you typed in your verification code correctly? Be
                       aware of correct use of lower- and uppercase letters. If
                       your verification code still does not show, please follow
-                      the instruction paper.
+                      the instruction letter and report the issue.
                     </Text>
                   </Box>
-
-                  {/*   <Box
-          id="success-text"
-          className="info-box"
-          display={"none"}
-          textAlign="center"
-          color="#599C2D"
-          width="100%"
-          >
-          <h3>Your vote has been counted!</h3>
-        </Box> */}
-
                   {input.length > 0 ? (
                     <Box id="result-table">
                       {results.map((result) => (
@@ -245,57 +224,6 @@ export default function VoteVerification() {
                       ))}
                     </Accordion>
                   )}
-                  {/* <Grid className="info-banner" id="info-banner">
-          <Link
-            id="slideout-trigger"
-            className="slideout-trigger"
-            onClick={() => slideOut()}
-          >{`>`}</Link>
-          <div className="info-banner-content">
-            <div id="banner-text">
-              <Text className="bold-text white-text">
-                You have finished the second part of the study!
-              </Text>
-
-              <Text className="white-text" mt={"1rem"}>
-                To complete the study, please fill out a survey about your
-                experience of the online voting system.{" "}
-              </Text>
-              <Button
-                id="survey-button-horizontal"
-                marginTop={"1rem"}
-                width="8rem"
-                className="red-btn"
-                padding={"1rem"}
-                onClick={() =>
-                  (window.location.href =
-                    "https://www.survey-xact.dk/LinkCollector?key=5SVF9X6XL695")
-                }
-              >
-                Go to survey
-              </Button>
-            </div>
-            <div id="survey-button-vertical-box">
-              <Button
-                width={0}
-                id="survey-button-vertical"
-                className="red-btn"
-                transform={"rotate(90deg)"}
-                marginBottom={0}
-                marginRight={0}
-                visibility="hidden"
-                position={"absolute"}
-                left={"-19.99"}
-                onClick={() =>
-                  (window.location.href =
-                    "https://www.survey-xact.dk/LinkCollector?key=5SVF9X6XL695")
-                }
-              >
-                Go to survey
-              </Button>
-            </div>
-          </div>
-        </Grid> */}
                   <Button
                     className="blue-btn"
                     width={"100%"}

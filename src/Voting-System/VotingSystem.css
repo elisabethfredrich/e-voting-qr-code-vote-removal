@@ -115,9 +115,7 @@ h3 {
   .no-button {
     min-width: 5rem;
   }
-    .img-container-popover{
-  max-width: 100%;
-}
+   
 }
 @media (min-width: 960px) {
   .pop-over-container{
@@ -127,9 +125,6 @@ h3 {
   .no-button {
     min-width: 10rem;
   }
-  .img-container-popover{
-  max-width: 50%;
-}
 }
 .pop-over-body{
   display:flex;
@@ -155,9 +150,4 @@ h3 {
   padding: 1.15rem 2rem !important;
   position: relative !important;
   top: 0 !important;
-}
-
-.img-container-popover{
-  justify-content: center;
-
 }

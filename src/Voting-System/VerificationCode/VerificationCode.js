@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  Text,
-  Checkbox,
-  Flex,
-  Grid,
-  Image,
-} from "@chakra-ui/react";
+import { Button, Text, Checkbox, Grid } from "@chakra-ui/react";
 import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
 import getCurrentUser from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 import PDFgenerator from "./PDFgenerator";
-import VerificationCodeExample from "../../assets/Example_VerificationCode.png";
 
 export default function VerificationCode() {
   const navigate = useNavigate();
@@ -49,8 +41,7 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-      
-          <div className="inner-page-container-wide">
+        <div className="inner-page-container-wide">
           <h1 className="blue-text">Verification Code</h1>
 
           <Text className="text-margin-top">
@@ -68,35 +59,34 @@ export default function VerificationCode() {
             NB! You need to keep this code until the end of the election!
           </Text>
 
-              <Grid className="verification-code-box centered-text">
-                <h3>fPdJhDVz9aEkJOa-P76d4HRe</h3>
+          <Grid className="verification-code-box centered-text">
+            <h3>fPdJhDVz9aEkJOa-P76d4HRe</h3>
 
-                <Button className="blue-btn" width={"15rem"}>
-                  <Text display={"flex"}>
-                    <span className="material-symbols-outlined medium-icon margin-right-icon">
-                      download
-                    </span>
-                  </Text>
-                  {<PDFgenerator voterId={voter.attributes.username} />}
-                </Button>
-              </Grid>
-              <Checkbox
-                className="check-box"
-                id="checkBox"
-                isChecked={checked}
-                onChange={handleChange}
-                isInvalid={invalid}
-              >
-                I have downloaded or saved my verification code.
-              </Checkbox>
-              <Button
-                onClick={handleSubmitVerificationCode}
-                className="blue-btn"
-                disabled={disabledButton}
-              >
-                Vote now
-              </Button> 
-    
+            <Button className="blue-btn" width={"15rem"}>
+              <Text display={"flex"}>
+                <span className="material-symbols-outlined medium-icon margin-right-icon">
+                  download
+                </span>
+              </Text>
+              {<PDFgenerator voterId={voter.attributes.username} />}
+            </Button>
+          </Grid>
+          <Checkbox
+            className="check-box"
+            id="checkBox"
+            isChecked={checked}
+            onChange={handleChange}
+            isInvalid={invalid}
+          >
+            I have downloaded or saved my verification code.
+          </Checkbox>
+          <Button
+            onClick={handleSubmitVerificationCode}
+            className="blue-btn"
+            disabled={disabledButton}
+          >
+            Vote now
+          </Button>
         </div>
       </div>
     </div>
