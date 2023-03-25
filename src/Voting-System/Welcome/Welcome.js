@@ -43,7 +43,7 @@ export default function Welcome() {
               allow="fullscreen"
               width="520"
               height="300"
-              src="https://www.youtube.com/embed/pV51zCm4NL4"
+              src="https://www.youtube.com/watch?v=Bb33hgxy1So"
             ></iframe>
           </div>
           <Button
