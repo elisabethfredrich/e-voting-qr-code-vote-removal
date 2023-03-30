@@ -32,11 +32,18 @@
   justify-content: center;
 }
 
+.error-text-db-submission {
+  color: var(--secondary-darkred);
+  visibility: hidden;
+}
+
+/* Checkbox */
 .check-box-red > span:nth-last-child(2)[data-checked] {
   background-color: var(--secondary-darkred);
   border-color: var(--secondary-darkred);
   box-shadow: 0 0 0 1px var(--secondary-lightred) !important;
 }
+
 .check-box-red > span[data-checked] {
   color: white;
 }
@@ -47,6 +54,7 @@
 }
 
 /* fonts */
+
 @media (max-width: 960px) {
   .h1-info-pages {
     font-size: 2.2rem !important;
@@ -78,13 +86,8 @@
   font-size: 1.1rem;
 }
 
-.error-text-db-submission {
-  color: var(--secondary-darkred);
-  visibility: hidden;
-  text-align: center;
-}
-
 /* buttons */
+
 @media (max-width: 960px) {
   .red-btn {
     min-width: 100% !important;
@@ -140,6 +143,7 @@
 }
 
 .info1-steps-griditem:last-child {
+  padding-top: 1rem;
   border-bottom: none;
 }
 
@@ -160,16 +164,34 @@
   line-height: 1;
 }
 
-.info1-steps-numbers:nth-last-child(2) {
+ .info1-steps-numbers:nth-last-child(2) {
   border-bottom: none;
 }
 
-.input-prolificID[aria-invalid="true"] {
+.input-field-code{
+  background-color: rgba(255, 255, 255, 0.124) !important;
+  font-weight: 600;
+  font-size: 1.3rem !important;
+  color: black ;
+}
+
+.input-field-code[aria-invalid="true"] {
   border-color: var(--secondary-lightred) !important;
   box-shadow: 0 0 0 1px var(--secondary-lightred) !important;
 }
 
-.input-prolificID:focus-visible {
+.input-field-code:focus-visible {
   border-color: rgba(255, 255, 255, 0.638) !important;
   box-shadow: 0 0 0 1px white !important;
+
+}
+
+/* Info-3 */
+.copy-button{
+  height: 1.75rem;
+  background-color: var(--secondary-darkred) !important;
+}
+
+.copy-button:hover{
+  background-color: var(--secondary-lightred) !important;
 }
